@@ -57,7 +57,8 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'messages' => '\ClickSend\Model\SmsMessage[]'
+        'messages' => '\ClickSend\Model\SmsMessage[]',
+        'shorten_urls' => 'Boolean'
     ];
 
     /**
@@ -66,7 +67,8 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'messages' => null
+        'messages' => null,
+        'shorten_urls' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages'
+        'messages' => 'messages',
+        'shorten_urls' => 'shorten_urls'
     ];
 
     /**
@@ -105,7 +108,8 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages'
+        'messages' => 'setMessages',
+        'shorten_urls'  => 'setShortenUrls',
     ];
 
     /**
@@ -114,7 +118,8 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages'
+        'messages' => 'getMessages',
+        'shorten_urls'  => 'getShortenUrls',
     ];
 
     /**
@@ -232,6 +237,31 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets messages
+     *
+     * @return Boolean
+     */
+    public function getShortenUrls()
+    {
+        return $this->container['shorten_urls'];
+    }
+
+    /**
+     * Sets messages
+     *
+     * @param Boolean $shorten_urls Boolean of whether to shorten URLs in the message
+     *
+     * @return $this
+     */
+    public function setShortenUrls($shorten_urls)
+    {
+        $this->container['shorten_urls'] = $shorten_urls;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
