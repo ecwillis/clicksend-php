@@ -181,6 +181,7 @@ class SmsMessageCollection implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
+        $this->container['shorten_urls'] = isset($data['shorten_urls']) ? $data['shorten_urls'] : false;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('class_type', self::$attributeMap, true);
